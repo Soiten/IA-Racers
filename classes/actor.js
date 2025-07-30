@@ -12,7 +12,7 @@ class Actor {
     push();
     fill(this.color);
     this.transform.applyTransform();
-    triangle(-5, 2, -5, -2, 1, 0);
+    triangle(-7, 3, -7, -3, 3, 0);
     pop();
   }
 

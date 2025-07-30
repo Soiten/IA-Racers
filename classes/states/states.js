@@ -23,7 +23,7 @@ class AcelerarReto extends State {
       return;
     }
     this.actor.color = "green";
-    this.actor.vel = toNext.copy().setMag(this.actor.speed);
+    this.actor.vel = toCurrent.copy().setMag(this.actor.speed);
     this.actor.transform.position.add(this.actor.vel);
     this.actor.transform.setRotation(this.actor.vel.heading());
   }

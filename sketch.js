@@ -23,6 +23,7 @@ function draw() {
 
 function setupUI(mainFrame) {
   const a = createButton("Começar");
+  a.position(200, 200);
   a.mousePressed(() => {
     a.hide();
     tela = "Game";

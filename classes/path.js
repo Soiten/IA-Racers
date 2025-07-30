@@ -31,7 +31,7 @@ class Path {
   }
 
   drawPoints() {
-    fill("green");
+    fill("white");
     for (let v of this._points) {
       circle(v.x, v.y, 3);
     }
@@ -55,12 +55,17 @@ class Path {
       const distSq = this._points[i].copy().sub(pos).magSq();
       if (distSq < minSq) {
         minSq = distSq;
-        indexClosest = i;
+        indexClosest = Number(i);
       }
     }
+
+    if (minSq < 900) {
+      indexClosest = (indexClosest + 1) % (this._points.length - 1);
+    }
+
     return {
       closest: this._points[indexClosest],
-      next: this._points[Number(indexClosest) + 1],
+      next: this._points[(indexClosest + 1) % (this._points.length - 1)],
     };
   }
 }

@@ -5,10 +5,12 @@ class Actor {
     this.vel = createVector(0, 0);
     this.maxVel = 4;
     this.speed = 2;
+    this.color = "black";
   }
 
   draw() {
     push();
+    fill(this.color);
     this.transform.applyTransform();
     triangle(-5, 2, -5, -2, 1, 0);
     pop();

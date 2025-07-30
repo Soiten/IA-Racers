@@ -16,7 +16,7 @@ class AcelerarReto extends State {
     const angle = toCurrent.angleBetween(toNext);
 
     if (abs(angle) > radians(25)) {
-      this.machineState(new DesacelerarCurvaState(this.actor));
+      this.machineState(new DesacelerarCurva(this.actor));
       return;
     }
 

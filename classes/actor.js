@@ -1,9 +1,10 @@
 class Actor {
   constructor() {
-    this.machine = new Machine(new Idle());
+    this.machine = new Machine(new AcelerarReto(this));
     this.transform = new Transform(200, 200, 0);
     this.vel = createVector(0, 0);
     this.maxVel = 4;
+    this.speed = 2;
   }
 
   draw() {
@@ -11,6 +12,10 @@ class Actor {
     this.transform.applyTransform();
     triangle(-5, 2, -5, -2, 1, 0);
     pop();
+  }
+
+  update() {
+    this.machine.update();
   }
 }
 

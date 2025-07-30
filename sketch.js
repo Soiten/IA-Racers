@@ -1,5 +1,6 @@
 let carros = [];
 let path;
+let tela = "Main menu";
 
 function setup() {
   const canvas = createCanvas(500, 500);
@@ -10,26 +11,22 @@ function setup() {
 
 function draw() {
   background(150);
+
+  if (tela != "Game") return;
   path.drawPoints();
+
+  for (let c of carros) {
+    c.update();
+    c.draw();
+  }
 }
 
 function setupUI(mainFrame) {
-  const canvasDiv = createDiv();
-  canvasDiv.id("canvas-div");
-  mainFrame.parent(canvasDiv);
-
-  const menuDiv = createDiv();
-  menuDiv.id("menu");
-  menuDiv.position(width / 3, height / 2);
-
-  const start = createButton("Começar");
-  start.mouseClicked(startGame);
-  start.id("comecar");
-  start.parent(menuDiv);
-
-  const explic = createButton("Explicação");
-  explic.id("explic");
-  explic.parent(menuDiv);
+  const a = createButton("Começar");
+  a.mousePressed(() => {
+    a.hide();
+    tela = "Game";
+  });
 }
 
 function startGame() {}
@@ -45,4 +42,12 @@ function loadPath() {
   path.addBezier(250, 71, 250, 71, 239, 27, 222, 44);
 }
 
-function loadActors() {}
+function loadActors() {
+  // Cria vários carros posicionados próximos ao ponto inicial
+  const start = path._points[0];
+  for (let i = 0; i < 5; i++) {
+    const a = new Actor();
+    a.transform.position = start.copy().add(p5.Vector.random2D().mult(i * 10));
+    carros.push(a);
+  }
+}

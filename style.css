@@ -1,0 +1,27 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+button {
+  padding: 10px;
+  border-radius: 15px;
+}
+
+
+#canvas-div{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}

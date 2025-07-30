@@ -6,11 +6,11 @@ class Machine {
 
   changeTo(state) {
     this._state = state;
-    state.setMachine(this)
+    state.setMachine(this);
   }
-  
-  update(){
-    this._state.run()
+
+  update() {
+    this._state.run();
   }
 }
 
@@ -18,9 +18,9 @@ class State {
   setMachine(maquina) {
     this._machine = maquina;
   }
-  
-  machineState(state){
-    this._machine.changeTo(state)
+
+  machineState(state) {
+    this._machine.changeTo(state);
   }
 
   run() {}

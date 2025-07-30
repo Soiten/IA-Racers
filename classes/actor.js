@@ -1,14 +1,15 @@
 class Actor {
   constructor() {
-    // this.machine = new Machine();
+    this.machine = new Machine(new Idle());
     this.transform = new Transform(200, 200, 0);
+    this.vel = createVector(0, 0);
+    this.maxVel = 4;
   }
 
   draw() {
-    const { position: pos } = this.transform;
     push();
     this.transform.applyTransform();
-    triangle(-15, 20, -15, -20, 10, 0);
+    triangle(-5, 2, -5, -2, 1, 0);
     pop();
   }
 }
